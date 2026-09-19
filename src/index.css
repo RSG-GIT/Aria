@@ -55,8 +55,10 @@ body {
     rgba(255, 255, 255, 0.002) 45%,
     rgba(255, 255, 255, 0.001) 100%
   );
+  /* Sin -webkit-: Lightning CSS prefija según los targets del build, y
+     declarar el prefijo a mano hace que descarte la propiedad entera al
+     minificar. El efecto glass desaparecía solo en producción. */
   backdrop-filter: blur(18px) saturate(1.3) brightness(1.04);
-  -webkit-backdrop-filter: blur(18px) saturate(1.3) brightness(1.04);
   border: none;
   box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.12);
   position: relative;

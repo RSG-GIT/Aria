@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { BENEFITS } from '../lib/content'
+import { BookingLink } from './BookingLink'
 import { riseIn, EASE, viewportOnce } from '../lib/motion'
 
 export function Solution() {
@@ -17,13 +18,10 @@ export function Solution() {
               Se conecta a su número actual y a su agenda en una tarde. Usted no
               cambia nada de cómo trabaja hoy.
             </p>
-            <a
-              href="#"
-              className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-[#3BB7A8] px-5 py-2.5 text-xs font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85"
-            >
+            <BookingLink className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-[#3BB7A8] px-5 py-2.5 text-xs font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85">
               Agendar demostración
               <ArrowUpRight size={16} strokeWidth={1.75} />
-            </a>
+            </BookingLink>
           </div>
         </div>
 

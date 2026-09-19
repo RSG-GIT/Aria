@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { PRICING_INCLUDES } from '../lib/content'
+import { BookingLink } from './BookingLink'
 import { riseIn } from '../lib/motion'
 
 export function Pricing() {
@@ -51,12 +52,9 @@ export function Pricing() {
               ))}
             </ul>
 
-            <a
-              href="#"
-              className="mt-9 block rounded-full bg-[#3BB7A8] px-6 py-3.5 text-center text-sm font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85"
-            >
+            <BookingLink className="mt-9 block rounded-full bg-[#3BB7A8] px-6 py-3.5 text-center text-sm font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85">
               Empezar con 14 días de prueba
-            </a>
+            </BookingLink>
 
             <p className="mt-5 text-center text-xs font-light leading-relaxed text-[#8FA09E]/85">
               Sin tarjeta para probar. Sin permanencia. Si no le sirve, la

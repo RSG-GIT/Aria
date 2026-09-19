@@ -9,6 +9,16 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 
+/**
+ * Página de reservas de Google Calendar (appointment schedule).
+ * Todos los CTA de agendado apuntan acá: cambiando esta constante se
+ * redirige la página entera.
+ */
+export const BOOKING_URL = '#'
+
+/** True cuando BOOKING_URL ya apunta a un destino real y externo. */
+export const isExternal = (href: string) => /^https?:\/\//.test(href)
+
 export const NAV_LINKS = [
   { label: 'Cómo funciona', href: '#como-funciona' },
   { label: 'Capacidades', href: '#capacidades' },

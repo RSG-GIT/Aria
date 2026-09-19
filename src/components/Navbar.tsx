@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '../lib/content'
+import { BookingLink } from './BookingLink'
 import { EASE } from '../lib/motion'
 
 export function Navbar() {
@@ -72,12 +73,9 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3">
-            <a
-              href="#"
-              className="hidden rounded-full bg-[#3BB7A8] px-5 py-2 text-xs font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85 md:block"
-            >
+            <BookingLink className="hidden rounded-full bg-[#3BB7A8] px-5 py-2 text-xs font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85 md:block">
               Escuchar a Aria
-            </a>
+            </BookingLink>
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -143,13 +141,9 @@ export function Navbar() {
                   ease: EASE,
                 }}
               >
-                <a
-                  href="#"
-                  onClick={() => setOpen(false)}
-                  className="mt-2 block rounded-full bg-[#3BB7A8] px-7 py-3 text-sm font-medium text-[#06090B]"
-                >
+                <BookingLink className="mt-2 block rounded-full bg-[#3BB7A8] px-7 py-3 text-sm font-medium text-[#06090B]">
                   Escuchar a Aria
-                </a>
+                </BookingLink>
               </motion.li>
             </ul>
           </motion.div>

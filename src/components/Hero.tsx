@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { usePingPongVideo } from '../hooks/usePingPongVideo'
 import { useIsDesktop, useReducedMotion } from '../hooks/useMediaQuery'
+import { BookingLink } from './BookingLink'
 import { LiveCallCard } from './LiveCallCard'
 import { Problem } from './Problem'
 import { EASE } from '../lib/motion'
@@ -108,12 +109,9 @@ export function Hero() {
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-6">
-                <a
-                  href="#"
-                  className="rounded-full bg-[#3BB7A8] px-7 py-3 text-sm font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85"
-                >
+                <BookingLink className="rounded-full bg-[#3BB7A8] px-7 py-3 text-sm font-medium text-[#06090B] transition-opacity duration-300 hover:opacity-85">
                   Escuchar a Aria
-                </a>
+                </BookingLink>
                 <a
                   href="#como-funciona"
                   className="group inline-flex items-center gap-2 text-sm font-light text-[#8FA09E] transition-colors duration-300 hover:text-[#F2F6F5]"
