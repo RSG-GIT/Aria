@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* NB: do not name a colour `base` — Tailwind would emit a `text-base`
+     colour utility that collides with the built-in font-size one. */
+  --color-night: #06090B;
+  --color-surface: #0F1618;
+  --color-accent: #3BB7A8;
+  --color-warm: #F0C48A;
+  --color-ink: #F2F6F5;
+  --color-mid: #7E8F8D;
+  --color-faint: #8FA09E;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #06090B;
+}
+
+body {
+  margin: 0;
+  background-color: #06090B;
+  color: #F2F6F5;
+  font-family: var(--font-sans);
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(59, 183, 168, 0.35);
+  color: #fff;
+}
+
+/* Focus rings: teal, always visible, never suppressed. */
+:focus-visible {
+  outline: 2px solid #3BB7A8;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------
+   .liquid-glass — near-invisible pane: an inset bloom, a 1.5px
+   gradient hairline drawn with mask-composite, and two very faint
+   radial highlights along the top edge.
+   --------------------------------------------------------------- */
+.liquid-glass {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.006) 0%,
+    rgba(255, 255, 255, 0.002) 45%,
+    rgba(255, 255, 255, 0.001) 100%
+  );
+  backdrop-filter: blur(18px) saturate(1.3) brightness(1.04);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3) brightness(1.04);
+  border: none;
+  box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(255, 255, 255, 0.02) 60%,
+    rgba(255, 255, 255, 0.07) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 60% at 22% -10%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+    radial-gradient(90% 50% at 78% -6%, rgba(59, 183, 168, 0.045) 0%, transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-glass > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Infinite loops — the only ones on the page. Both are gated off
+   under prefers-reduced-motion at the bottom of this file. */
+@keyframes aria-pulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes aria-bar {
+  0%, 100% { transform: scaleY(0.22); }
+  50%      { transform: scaleY(1); }
+}
+
+.aria-pulse {
+  animation: aria-pulse 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.aria-bar {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aria-bar 1.25s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aria-pulse,
+  .aria-bar {
+    animation: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
