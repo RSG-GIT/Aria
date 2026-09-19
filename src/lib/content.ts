@@ -14,7 +14,7 @@ import {
  * Todos los CTA de agendado apuntan acá: cambiando esta constante se
  * redirige la página entera.
  */
-export const BOOKING_URL = '#'
+export const BOOKING_URL = 'https://calendar.app.google/kujDNxTwET5XBKMw8'
 
 /** True cuando BOOKING_URL ya apunta a un destino real y externo. */
 export const isExternal = (href: string) => /^https?:\/\//.test(href)

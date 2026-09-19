@@ -69,11 +69,20 @@ utilidad de tamaño de fuente del mismo nombre. El token se llama `--color-night
 inline de Framer Motion (el media query de CSS no las alcanza). Además: sin
 loops, sin revelado letra por letra y el video queda pausado en el frame 0.
 
+## Reservas
+
+Los cuatro CTA de agendado (navbar desktop, menú mobile, hero, solución y
+pricing) pasan por `BOOKING_URL` en `src/lib/content.ts` y abren la página de
+reservas de Google Calendar en una pestaña nueva. Para cambiar el destino de
+todos a la vez, se edita esa única constante. `BookingLink` agrega
+`target="_blank"` y `rel="noopener noreferrer"` solo cuando la URL es externa,
+así que dejarla en `#` durante el desarrollo no rompe nada.
+
 ## Pendiente
 
-Todos los `href` apuntan a `#`. Faltan destinos reales para los CTA, el enlace
-de la demo, privacidad y términos. Los testimonios, el precio y los datos de
-contacto son de muestra.
+Siguen en `#`: privacidad, términos y los datos de contacto del footer (que
+además deberían ser `mailto:` y `tel:` cuando haya datos reales). Los
+testimonios, el precio y el contacto son de muestra.
 
 Las imágenes de `public/` se optimizaron una sola vez con `sharp` (2752×1536 →
 1920 de ancho, JPEG q74 + WebP q72; 1.6 MB → ~68 KB cada una). La dependencia se
